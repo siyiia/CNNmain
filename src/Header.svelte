@@ -10,55 +10,48 @@
 		background: rgb(30, 30, 30);
     justify-content: space-between;
 	}
-
 	#logo {
 		display: flex;
 		align-items: center;
 	}
-
 	#logo-text {
 		font-size: 30px;
 		color: var(--light-gray);
 		font-family: 'A Love of Thunder';
-		margin-right: 100px;
+		margin-right: 10px;
 	}
-
 	#svg-logo-tagline {
 		font-size: 23px;
 		fill: rgb(255, 255, 255);
 		dominant-baseline: baseline;
 		font-family: 'Neucha';
 	}
-
-	/* .icons {
+	.icons {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
 	}
-
 	.icon {
 		width: 27px;
 		height: 27px;
 		margin-left: 15px;
 	}
-
 	.icon a{
 		width: 100%;
 		height: 100%;
 	}
-
 	.icon img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-	} */
+	}
 </style>
 
 <div id="header">
 
   <div id="logo">
     <div id="logo-text">
-      AI Insight
+      CNN Explainer
     </div>
 
 		<svg width="510px" height="50px">
@@ -75,14 +68,13 @@
 
 			<g filter="url(#chalk-texture)" transform="translate(0, 35)">
 				<text id="svg-logo-tagline">
-					An interactive way of learning image processing algorithms! <!---更改header内容--> 
+					Learn Convolutional Neural Network (CNN) in your browser! 
 				</text>
 			</g>
 		</svg>
   </div>
 
-	<!--删除了右上角的三个可点击按钮 
-		<div class="icons">
+	<div class="icons">
 	
 		<div class="icon" title="Research paper">
 			<a target="_blank" href="https://arxiv.org/abs/2004.15004">
@@ -102,5 +94,5 @@
 			</a>
 		</div>
 
-	</div> -->
+	</div>
 </div>
