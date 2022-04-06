@@ -51,10 +51,10 @@
 
   <div id="logo">
     <div id="logo-text">
-      CNN Explainer
+      AI INSIGHT
     </div>
 
-		<svg width="510px" height="50px">
+		<svg width="490px" height="50px">
 			<defs>
 				<filter x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox" id="chalk-texture">
 					<feTurbulence type="fractalNoise" baseFrequency="2" numOctaves="5" stitchTiles="stitch" result="f1">
@@ -68,13 +68,13 @@
 
 			<g filter="url(#chalk-texture)" transform="translate(0, 35)">
 				<text id="svg-logo-tagline">
-					Learn Convolutional Neural Network (CNN) in your browser! 
+					An interactive way of learning image processing algorithms! 
 				</text>
 			</g>
 		</svg>
   </div>
 
-	<div class="icons">
+<!-- 	<div class="icons">
 	
 		<div class="icon" title="Research paper">
 			<a target="_blank" href="https://arxiv.org/abs/2004.15004">
@@ -94,5 +94,5 @@
 			</a>
 		</div>
 
-	</div>
+	</div> -->
 </div>
