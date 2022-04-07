@@ -29,5 +29,5 @@
 </style>
 
 <div id='explainer'>
-    <Overview />
+  <Overview />
 </div>

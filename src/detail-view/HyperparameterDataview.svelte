@@ -98,5 +98,5 @@
 
 <div style="display: inline-block; vertical-align: middle;" class="grid"
   bind:this={grid_final}>
-  <svg id="grid" width=100% height=100%></svg>
+  <svg id="grid" width=70% height=70%></svg>
 </div>

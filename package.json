@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@tensorflow/tfjs": "^1.4.0",
+    "localtunnel": "^2.0.2",
     "sirv-cli": "^0.4.4"
   },
   "scripts": {

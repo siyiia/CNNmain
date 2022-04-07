@@ -4,138 +4,38 @@
 
   let softmaxEquation = `$$\\text{Softmax}(x_{i}) = \\frac{\\exp(x_i)}{\\sum_j \\exp(x_j)}$$`;
   let reluEquation = `$$\\text{ReLU}(x) = \\max(0,x)$$`;
-
-  let currentPlayer;
+ let currentPlayer;
 </script>
 
 <body>
   <div id="description">
-  <h2>Interactive features</h2>
-  <ol>
-    <li>
-      <strong>Upload your own image</strong> by selecting
-      <img
-        class="icon is-rounded"
-        src="PUBLIC_URL/assets/figures/upload_image_icon.png"
-        alt="upload image icon"
-        width="12%"
-        height="12%"
-      /> to understand how your image is classified into the 10 classes. By analyzing
-      the neurons throughout the network, you can understand the activations maps
-      and extracted features.
-    </li>
-    <li>
-      <strong>Change the activation map colorscale</strong> to better
-      understand the impact of activations at different levels of abstraction
-      by adjusting
-      <img
-        class="is-rounded"
-        width="9%"
-        height="9%"
-        src="PUBLIC_URL/assets/figures/heatmap_scale.png"
-        alt="heatmap"
-      />.
-    </li>
-    <li>
-      <strong>Understand network details</strong> such as layer dimensions and
-      colorscales by clicking the
-      <img
-        class="is-rounded"
-        width="10%"
-        height="10%"
-        src="PUBLIC_URL/assets/figures/network_details.png"
-        alt="network details icon"
-      /> icon.
-    </li>
-    <li>
-      <strong>Simulate network operations</strong> by clicking the
-      <img
-        class="icon is-rounded"
-        src="PUBLIC_URL/assets/figures/play_button.png"
-        alt="play icon"
-        width="12%"
-        height="12%"
-      />
-      button or interact with the layer slice in the
-      <em>Interactive Formula View</em> by hovering over portions of the input
-      or output to understand the mappings and underlying operations.
-    </li>
-    <li>
-      <strong>Learn layer functions</strong> by clicking
-      <img
-        class="icon is-rounded"
-        src="PUBLIC_URL/assets/figures/info_button.png"
-        alt="info icon"
-        width="12%"
-        height="12%"
-      />
-      from the <em>Interactive Formula View</em> to read layer details from the
-      article.
-    </li>
-  </ol>
+    <h2>What is a Convolutional Neural Network?</h2>
+    <p>
+      A CNN is a neural network: an algorithm used to recognize patterns in data. Neural Networks in general are composed of a collection of neurons that are organized in layers, each with their own learnable weights and biases.
+    </p>
+  	<ol>
+  		<li>A <strong>tensor</strong> can be thought of as an n-dimensional matrix.  In the CNN above, tensors will be 3-dimensional with the exception of the output layer.</li>
+  		<li>A <strong>neuron</strong> can be thought of as a function that takes in multiple inputs and yields a single output.  The outputs of neurons are represented above as the <span style="color:#FF7577;">red</span> &rarr; <span style="color:#60A7D7;">blue</span> <strong>activation maps</strong>.</li>
+  		<li>A <strong>layer</strong> is simply a collection of neurons with the same operation, including the same hyperparameters.</li>
+  		<li><strong>Kernel weights and biases</strong>, while unique to each neuron, are tuned during the training phase, and allow the classifier to adapt to the problem and dataset provided.  They are encoded in the visualization with a <span style="color:#BC8435;">yellow</span> &rarr; <span style="color:#39988F;">green</span> diverging colorscale.  The specific values can be viewed in the <em>Interactive Formula View</em> by clicking a neuron or by hovering over the kernel/bias in the <em>Convolutional Elastic Explanation View</em>.</li>
+  		<li>A CNN conveys a <strong>differentiable score function</strong>, which is represented as <strong>class scores</strong> in the visualization on the output layer.</li>
+  	</ol> 
+  	
 
-  
-  <section class = "explain">
-    <div class="figure">
-      <img
-        src="PUBLIC_URL/assets/figures/convlayer_overview_demo.gif"
-        alt="clicking on topmost first conv. layer activation map"
-        width="60%"
-        height="60%"
-        align= "bottom"
-      />
-      <div class="figure-caption">
-        Figure 1. As you hover over the activation map of the topmost node from
-        the first convolutional layer, you can see that 3 kernels were applied
-        to yield this activation map. After clicking this activation map, you
-        can see the convolution operation occuring with each unique kernel.
-      </div>
-    </div>
-  
-
-    <div class="figure">
-      <img
-        src="PUBLIC_URL/assets/figures/convlayer_detailedview_demo.gif"
-        alt="clicking on topmost first conv. layer activation map"
-        width="80%"
-        height="80%"
-        align = "bottom"
-      />
-      <div class="figure-caption">
-        Figure 2. The kernel being applied to yield the topmost intermediate
-        result for the discussed activation map.
-      </div>
-
-        <img
-          src="PUBLIC_URL/assets/figures/softmax_animation.gif"
-          alt="softmax interactive formula view"
-         
-        />
-        <div class="figure-caption">
-          Figure 3. The <em>Softmax Interactive Formula View</em> allows a user to
-          interact with both the color encoded logits and formula to understand how
-          the prediction scores after the flatten layer are normalized to yield classification
-          scores.
-        </div>
-      </div>
-
-  
-    
-
-  </section>
- <section class="try-it-out">
+    <section class="try-it-out">
       <div id = "hyper">
         <HyperparameterView/>
       </div>
       <div class="right-col">
-        <h2><span>Try it out</span></h2>
+        <h2><span>Try It out</span></h2>
         <p><strong>Padding</strong> is often necessary when the kernel extends beyond the activation map. Padding conserves data at the borders of activation maps, and it can help preserve the input's spatial size.</p>
         <p><strong>Kernel size</strong> often also referred to as filter size, refers to the dimensions of the sliding window over the input. Choosing this hyperparameter has a massive impact on the image classification task. </p>
         <p><strong>Stride</strong> indicates how many pixels the kernel should be shifted over at a time. As stride is decreased, more features are learned because more data is extracted.</p>
       </div>
     </section>
 
-    <h4><span>Activation</span> Functions</h4>
+  
+  <h4><span>Activation</span> Functions</h4>
     <h6 id="article-relu">ReLU</h6>
     <p>
       Neural networks are extremely prevalent in modern technology&mdash;because
@@ -145,12 +45,9 @@
         href="https://arxiv.org/pdf/1512.03385.pdf"
         title="ResNet">tremendous accuracies</a
       >
-      is because of their non-linearity. ReLU applies much-needed non-linearity into
-      the model. Non-linearity is necessary to produce non-linear decision boundaries,
+      is because of their non-linearity.  Non-linearity is necessary to produce non-linear decision boundaries,
       so that the output cannot be written as a linear combination of the inputs.
-      If a non-linear activation function was not present, deep CNN architectures
-      would devolve into a single, equivalent convolutional layer, which would not
-      perform nearly as well. The ReLU activation function is specifically used as
+      The ReLU activation function is specifically used as
       a non-linear activation function, as opposed to other non-linear functions
       such as <em>Sigmoid</em> because it has been
       <a href="https://arxiv.org/pdf/1906.01975.pdf" title="See page 29"
@@ -160,7 +57,7 @@
     <p>
       The ReLU activation function is a one-to-one mathematical operation: {reluEquation}
     </p>
-
+<!-- 
     <div class="rexFigg">
     <img
     src="PUBLIC_URL/assets/figures/relu_graph.png"
@@ -172,19 +69,18 @@
     Figure 4. The ReLU activation function graphed, which disregards all
     negative data.
   </div>
-</div>
+</div>  -->
 
     <p>
       This activation function is applied elementwise on every value from the
-      input tensor. For example, if applied ReLU on the value 2.24, the result
-      would be 2.24, since 2.24 is larger than 0. You can observe how this
+      input tensor. You can observe how this
       activation function is applied by clicking a ReLU neuron in the network
       above. The Rectified Linear Activation function (ReLU) is performed after
       every convolutional layer in the network architecture outlined above.
       Notice the impact this layer has on the activation map of various neurons
       throughout the network!
     </p>
-    <h6 id="article-softmax">Softmax</h6>
+     <h6 id="article-softmax">Softmax</h6>
     <p>
       {softmaxEquation}
       A softmax operation serves a key purpose: making sure the CNN outputs sum to
@@ -201,73 +97,59 @@
     <p>
       You might be thinking what the difference between standard normalization
       and softmax is&mdash;after all, both rescale the logits between 0 and 1.
-      Remember that backpropagation is a key aspect of training neural
-      networks&mdash;we want the correct answer to have the largest “signal.” By
-      using softmax, we are effectively “approximating” argmax while gaining
+      By using softmax, we are effectively “approximating” argmax while gaining
       differentiability. Rescaling doesn’t weigh the max significantly higher
-      than other logits, whereas softmax does. Simply put, softmax is a “softer”
-      argmax&mdash;see what we did there?
-    </p>
-    <!-- <div class="figure">
-      <img
-        src="PUBLIC_URL/assets/figures/softmax_animation.gif"
-        alt="softmax interactive formula view"
-      />
-      <div class="figure-caption">
-        Figure 3. The <em>Softmax Interactive Formula View</em> allows a user to
-        interact with both the color encoded logits and formula to understand how
-        the prediction scores after the flatten layer are normalized to yield classification
-        scores.
-      </div>
-    </div> -->
+      than other logits, whereas softmax does. 
+    </p> 
+  
 
    
+    <section class = "explain">
+      <div class="figure">
+        <img
+          src="PUBLIC_URL/assets/figures/convlayer_overview_demo.gif"
+          alt="clicking on topmost first conv. layer activation map"
+          width="60%"
+          height="60%"
+          align= "top"
+        />
+        <div class="figure-caption">
+          Figure 1. As you hover over the activation map of the topmost node from
+          the first convolutional layer, you can see that 3 kernels were applied
+          to yield this activation map. After clicking this activation map, you
+          can see the convolution operation occuring with each unique kernel.
+        </div>
+      </div>
+    
+  
+      <div class="figure">
+        <img
+          src="PUBLIC_URL/assets/figures/convlayer_detailedview_demo.gif"
+          alt="clicking on topmost first conv. layer activation map"
+          width="80%"
+          height="80%"
+          align = "bottom"
+        />
+        <div class="figure-caption">
+          Figure 2. The kernel being applied to yield the topmost intermediate
+          result for the discussed activation map.
+        </div>
+  
+          <img
+            src="PUBLIC_URL/assets/figures/softmax_animation.gif"
+            alt="softmax interactive formula view"
+           
+          />
+          <div class="figure-caption">
+            Figure 3. The <em>Softmax Interactive Formula View</em> allows a user to
+            interact with both the color encoded logits and formula to understand how
+            the prediction scores after the flatten layer are normalized to yield classification
+            scores.
+          </div>
+        </div>
+    </section>
 
-    <h2>Video Tutorial</h2>
-    <ul>
-     <!-- 一个小段 -->
-      <li class="video-link" on:click={currentPlayer.play(0)}>
-        Luci Testing
-        <small>(0:00-0:22)</small>
-      </li>
-
-      <li class="video-link" on:click={currentPlayer.play(27)}>
-        <em>Thank you, bye</em>
-        <small>(0:27-0:37)</small>
-      </li>
-
-      <li class="video-link" on:click={currentPlayer.play(37)}>
-        3/23 <em>CNN View</em>
-        <small>(0:37-0:46)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(46)}>
-        Convolutional, ReLU, and Pooling <em>Interactive Formula Views</em>
-        <small>(0:46-1:21)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(82)}>
-        Flatten <em>Elastic Explanation View</em>
-        <small>(1:22-1:41)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(101)}>
-        Softmax <em>Interactive Formula View</em>
-        <small>(1:41-2:02)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(126)}>
-        Engaging Learning Experience: Understanding Classification
-        <small>(2:06-2:28)</small>
-      </li>
-      <li class="video-link" on:click={currentPlayer.play(149)}>
-        Interactive Tutorial Article
-        <small>(2:29-2:54)</small>
-      </li>
-    </ul>
-    <div class="video">
-      <Youtube
-        videoId="dQw4w9WgXcQ" 
-        playerId="demo_video"
-        bind:this={currentPlayer}
-      />
-    </div>
+  
   </div>
 </body>
 
